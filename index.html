@@ -40,6 +40,13 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
 
+        .product img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
         .price {
             font-size: 18px;
             font-weight: bold;
@@ -57,6 +64,25 @@
 
         button:hover {
             background-color: #B92A74;
+        }
+
+        .carousel {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
         }
 
         .footer {
@@ -79,13 +105,34 @@
             <h2>Flor de Gomitas</h2>
             <p>Deliciosas flores hechas con gomitas de alta calidad.</p>
             <p class="price">$8 c/u o 2 x $15</p>
+            <img src="https://ejemplo.com/gomitas.jpg" alt="Flor de Gomitas">
             <button>Ordenar ahora</button>
         </div>
+    </div>
+
+    <h2>Clientes Satisfechos</h2>
+    <div class="carousel">
+        <img src="https://ejemplo.com/cliente1.jpg" alt="Cliente feliz con gomitas" class="active">
+        <img src="https://ejemplo.com/cliente2.jpg" alt="Cliente disfrutando de CandyFlowers">
+        <img src="https://ejemplo.com/cliente3.jpg" alt="Gomitas en evento especial">
     </div>
 
     <div class="footer">
         <p>Contacto: candyflowers@correo.com | Venta en UPAEP</p>
     </div>
+
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll(".carousel img");
+
+        function showNextImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+
+        setInterval(showNextImage, 3000);
+    </script>
 
 </body>
 </html>
